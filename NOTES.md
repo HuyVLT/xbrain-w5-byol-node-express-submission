@@ -1,5 +1,5 @@
 # Ghi chú (tiếng Việt)
-
+![AWS Lambda Function byol-node-express](lambda_gateway.png)
 ## Chiến lược
 
 Dùng `serverless-http` làm adapter để chạy ứng dụng Express trên AWS Lambda.

@@ -29,9 +29,15 @@ sam deploy --guided --region us-west-2
 	- Stack Name: `byol-node-express`
 	- Xác nhận region là `us-west-2` và chấp nhận các mặc định còn lại.
 
-- Sau khi deploy xong, output CloudFormation `ApiUrl` chính là API Gateway URL. Dán vào chỗ bên dưới.
+- Sau khi deploy xong, output CloudFormation `ApiUrl` chính là API Gateway URL.
 
-API Gateway URL (đã deploy): <paste API URL here>
+API Gateway URL (đã deploy): https://7exc1p9qc8.execute-api.us-west-2.amazonaws.com
+
+Test endpoint:
+```bash
+curl https://7exc1p9qc8.execute-api.us-west-2.amazonaws.com/
+# Response: {"ok":true,"runtime":"express","message":"hello from your existing app"}
+```
 
 ## Giữ thay đổi code ở mức tối thiểu
 
@@ -60,9 +66,4 @@ aws logs filter-log-events --log-group-name /aws/lambda/byol-node-express --limi
 Tìm dòng chứa `Init Duration: 123.45 ms` ở lần gọi đầu (cold).
 
 Measured cold start (Init Duration): <paste Init Duration ms here>
-
-## GitHub và chia sẻ
-
-- Tôi sẽ đẩy repo lên `https://github.com/HuyVLT/xbrain-w5-byol-node-express-submission.git` theo yêu cầu.
-- Sau khi push xong, bạn có thể vào `Settings -> Manage access` của repo và mời `nghia.huynh@techxcorp.com` làm collaborator hoặc thêm quyền phù hợp.
 

@@ -65,5 +65,12 @@ aws logs filter-log-events --log-group-name /aws/lambda/byol-node-express --limi
 
 Tìm dòng chứa `Init Duration: 123.45 ms` ở lần gọi đầu (cold).
 
-Measured cold start (Init Duration): <paste Init Duration ms here>
+Measured cold start (Init Duration): 
+
+**Note:** Cold start (Init Duration) chỉ xuất hiện lần gọi đầu tiên sau deploy, hoặc sau khi function chưa được dùng >10 phút. Sau khi warm up, mỗi invoke chỉ là ~2-3ms (Duration).
+
+Nếu cần đo cold start:
+1. Deploy function
+2. Chờ 10+ phút không gọi
+3. Gọi lần đầu và kiểm tra CloudWatch log tìm `Init Duration: X ms` trong dòng REPORT
 
